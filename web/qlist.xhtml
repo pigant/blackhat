@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <h:head>
+        <title>#Questions!</title>
+    </h:head>
+    <h:body style="background-image: none!important;">
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="170"   >
+                <img src="as.jpg" style="float: right; width: 30%" />
+                <h:form>  
+                    <p:growl id="messages" showDetail="false"/>
+
+
+
+                    <p:commandButton id="dynaButton" value="Pwn3d" type="button" icon="ui-icon-extlink"/>
+                    <p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
+                        <p:submenu label="Register">
+                            <p:menuitem value="New Register" outcome="/register" icon="ui-icon-disk"/>
+                            <p:menuitem value="Registered" outcome="/registered" icon="ui-icon-search"/>
+                        </p:submenu>
+                        <p:submenu label="Game">
+                            <p:menuitem value="New Question" outcome="/question"  icon="ui-icon-newwin"/>
+                            <p:menuitem value="List Questions" outcome="/qlist"  icon="ui-icon-newwin"/>
+                            <p:menuitem value="New Game" outcome="/game"  icon="ui-icon-newwin"/>
+                        </p:submenu>
+
+                        <p:submenu label="Rating">
+
+                            <p:menuitem value="Black Hats" outcome="/blackhats" icon="ui-icon-check"/>
+                            <p:menuitem value="Wall 0f Sheep" outcome="/sheep" icon="ui-icon-close"/>
+                        </p:submenu>
+
+                        <p:submenu label="Logout">
+                            <p:menuitem value="Exit" outcome="/index" icon="ui-icon-extlink"/>
+                        </p:submenu>
+
+
+                    </p:menu>
+
+
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="10" >
+
+            </p:layoutUnit>
+
+
+
+            <p:layoutUnit class="ct" position="center" header="Questions!">
+
+
+                <p:dataTable var="q" value="#{Juego.lista}" paginator="true" rows="7">
+                    <p:column headerText="Número">
+                        <h:outputText value="#{q.numero}" />
+                    </p:column>
+                    <p:column headerText="Pregunta">
+                        <h:outputText value="#{q.pregunta}" />
+                    </p:column>
+                    <p:column headerText="Alternativa 1">
+                        <h:outputText value="#{q.alternativa1}" />
+                    </p:column>
+                    <p:column headerText="Alternativa 2">
+                        <h:outputText value="#{q.alternativa2}" />
+                    </p:column>
+                    <p:column headerText="Alternativa 3">
+                        <h:outputText value="#{q.alternativa3}" />
+                    </p:column>
+                    <p:column headerText="Alternativa 4">
+                        <h:outputText value="#{q.alternativa4}" />
+                    </p:column>
+                    <p:column headerText="Respuesta">
+                        <h:outputText value="#{q.respuesta}" />
+                    </p:column>
+
+
+
+
+                </p:dataTable>
+
+
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>
+

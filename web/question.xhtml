@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link type="text/css" rel="stylesheet" href="styler.css" />
+    <h:head>
+        <title>#Question</title>
+    </h:head>
+    <h:body   style="background-image: none!important;">
+
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="170"   >
+                <img src="qs.jpg" style="float: right" />
+
+                <h:form >  
+                    <p:growl id="messages" showDetail="false"/>
+
+
+
+                    <p:commandButton id="dynaButton" value="Pwn3d" type="button" icon="ui-icon-extlink"/>
+                    <p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
+                        <p:submenu label="Register">
+                            <p:menuitem value="New Register" outcome="/register" icon="ui-icon-disk"/>
+                            <p:menuitem value="Registered" outcome="/registered" icon="ui-icon-search"/>
+                        </p:submenu>
+                        <p:submenu label="Game">
+                            <p:menuitem value="New Question" outcome="/question"  icon="ui-icon-newwin"/>
+                            <p:menuitem value="List Questions" outcome="/qlist"  icon="ui-icon-newwin"/>
+                            <p:menuitem value="New Game" outcome="/game"  icon="ui-icon-newwin"/>
+                        </p:submenu>
+
+                        <p:submenu label="Rating">
+
+                            <p:menuitem value="Black Hats" outcome="/blackhats" icon="ui-icon-check"/>
+                            <p:menuitem value="Wall 0f Sheep" outcome="/sheep" icon="ui-icon-close"/>
+                        </p:submenu>
+
+                        <p:submenu label="Logout">
+                            <p:menuitem value="Exit" outcome="/index" icon="ui-icon-extlink"/>
+                        </p:submenu>
+
+
+                    </p:menu>
+                </h:form>
+
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="10" >
+
+            </p:layoutUnit>
+
+
+
+            <p:layoutUnit class="ct"  position="center" header="Question" >
+
+                <h:form id="form" >
+                    <p:panelGrid id="panel" columns="2" style="margin: 0 auto!important;" >
+                        <f:facet name="header">
+                            New Question
+                        </f:facet>
+                        <h:outputLabel value="Nº Question: "/>
+                        <p:inputText id="regid" value="#{Juego.numero}" required="true" readonly="true" />
+                        <h:outputLabel value="Pregunta: "/>
+                        <p:inputText value="#{Juego.pregunta}" required="true" />
+                        <h:outputLabel value="Alternativa 1: "/>
+                        <p:inputText value="#{Juego.alternativa1}" required="true" />
+                        <h:outputLabel value="Alternativa 2: "/>
+                        <p:inputText value="#{Juego.alternativa2}" required="true" />
+                        <h:outputLabel value="Alternativa 3: "/>
+                        <p:inputText value="#{Juego.alternativa3}" required="true" />
+                        <h:outputLabel value="Alternativa 4: "/>
+                        <p:inputText value="#{Juego.alternativa4}" required="true" />
+                        <h:outputLabel value="Respuesta: "/>
+                        <p:inputText value="#{Juego.respuesta}" required="true" />
+                        <h:outputText value=""/>
+                        <f:facet name="footer" >
+                            <h:commandButton style="margin-left: 50%" value="Enter"  action="#{Juego.crearPregunta()}"/>
+                        </f:facet>
+                    </p:panelGrid>
+                </h:form>
+
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>
+
